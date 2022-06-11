@@ -18,25 +18,25 @@ function loadData() {
 })();
 
 function formatDate(date) {
-    //const day = date.getDate();
-    //const month = date.getMonth();
-    //const year = date.getFullYear();
-    //const hours = date.getHours();
-    //const minutes = date.getMinutes();
+    const day = padZero(date.getDate());
+    const month = padZero(1 + date.getMonth());
+    const year = padZero(date.getFullYear());
+    const hours = padZero(date.getHours());
+    const minutes = padZero(date.getMinutes());
 
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth()).padStart(2, '0');
-    const year = date.getFullYear();
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
+    // const day = String(date.getDate()).padStart(2, '0');
+    // const month = String(1 + date.getMonth()).padStart(2, '0');
+    // const year = date.getFullYear();
+    // const hours = String(date.getHours()).padStart(2, '0');
+    // const minutes = String(date.getMinutes()).padStart(2, '0');
 
-    return `${day}.${month[0] + (+month[1]+1)}.${year} ${hours}:${minutes}`;
+    return `${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
-//function padZero(value) {
-//    if (value < 10) {
-//        return `0${value}`;
-//    }
-//
-//    return value;
-//}
+function padZero(value) {
+   if (value < 10) {
+       return `0${value}`;
+   }
+
+   return value;
+}
