@@ -15,7 +15,20 @@ function loadData() {
     const element = document.getElementById('date');
 
     element.textContent = formatDate(date);
+
+    const tableBody = document.getElementById('courses');
+    tableBody.insertAdjacentElement('afterbegin', createTableRow(USD, formatDate(date)));
 })();
+
+function createTableRow(valute, date) {
+    const row = document.createElement('tr');
+
+    console.log(valute);
+
+    row.innerHTML = `<td>${date}</td><td>${valute.Value}</td><td>-</td>`;
+
+    return row;
+}
 
 function formatDate(date) {
     const day = padZero(date.getDate());
